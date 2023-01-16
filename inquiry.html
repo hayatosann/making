@@ -143,7 +143,7 @@
     <section class="inquiry-first-view">
        <img src="./img/firstview.png" alt="">
     </section>
-    <form id="myForm" name="inquiry_form" method="POST" action="/thanks.html" netlify>
+    <form id="myForm" name="inquiry_form" method="POST" action="./thanks.html" data-netlify="true">
         <div class="form-topic">
             <h1>モニター募集キャンペーン 応募フォーム</h1>
             <h2>30秒で完了!下記の情報をご入力頂けましたら、メールにて詳細をご連絡致します。</h2>
@@ -243,11 +243,11 @@
         <!-- <div class="input-zone">
             <input type="submit" value="送信する" class="submit" id="submit" onclick="return check()">
         </div> -->
+        <div class="input-zone forsubmit">
+            <input type="submit" value="送信" class="submit" id="submit" onclick="SubForm()">
+        </div>
       </form>
-      <div class="input-zone forsubmit">
-        <input type="submit" value="送信" class="submit" id="submit" onclick="SubForm()">
-      </div>
-
+      
     <footer>
         <img src="./img/footer/logo_base color(RGB)-07.png" alt="">
         <ul>
