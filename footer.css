@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+footer{
+    background-color: #ed3781;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+footer img{
+    height: 100px;
+}
+
+footer ul{
+    width: 60%;
+    margin: 0 auto;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #FFFFFF;
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./footer.css">
+    <script src="https://kit.fontawesome.com/715ff89634.js" crossorigin="anonymous"></script>
+    <!-- <script src="./form.js"></script> -->
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+    <script>
+      function printError(elemId, hintMsg) {
+          document.getElementById(elemId).innerHTML = hintMsg;
+      }
+      
+      function SubForm (){
+
+        var name = document.getElementById("name").value;
+        var zipcode = document.getElementById("zipcode").value;
+        var address = document.getElementById("address").value;
+        var instagram = document.getElementById("instagram").value;
+        var emailAddress = document.getElementById("email_address").value;
+        var telephoneNumber = document.getElementById("telephone_number").value;
+        // var question = document.getElementById("question").value;
+        var checkboxInfo = document.getElementById("checkboxInfo").checked;
+
+        // Defining error variables with a default value
+        var nameErr = addressErr = instagramErr = emailErr = telephoneErr = checkboxInfoErr = ZipCodeErr =  true;
+        
+        // Validate name
+        if(name == "") {
+            // printError("nameErr", "Please enter your name");
+            printError("nameErr", "お名前が入力されていません。");
+        } else {
+          printError("nameErr", "");
+          nameErr = false;
+        }
+        
+        // Validate zipcode
+        if(zipcode == "") {
+            // printError("nameErr", "Please enter your name");
+            printError("ZipCodeErr", "郵便番号が入力されていません。");
+        } else {
+          printError("ZipCodeErr", "");
+          ZipCodeErr = false;
+        }
+
+        // Validate address
+        if(address == "") {
+            // printError("addressErr", "Please enter your company name");
+            printError("addressErr", "ご住所が入力されていません。");
+        } else {               
+            printError("addressErr", "");
+            addressErr = false;
+        }
+
+        // Validate department name
+        if(instagram == "") {
+            // printError("instagramErr", "Please enter your department name");
+            printError("instagramErr", "Instagram IDが入力されていません。");
+        } else {
+            printError("instagramErr", "");
+            instagramErr = false;
+        }
+        
+        // Validate email address
+        if(emailAddress == "") {
+            // printError("emailErr", "Please enter your email address");
+            printError("emailErr", "メールアドレスが入力されていません。");
+        } else {
+            // Regular expression for basic email validation
+            var regex = /^\S+@\S+\.\S+$/;
+            if(regex.test(emailAddress) === false) {
+                // printError("emailErr", "Please enter a valid email address");
+                printError("emailErr", "メールアドレスの形式が正しくありません。");
+            } else{
+                printError("emailErr", "");
+                emailErr = false;
+            }
+        }
+        
+        // // Validate mobile number
+        if(telephoneNumber == "") {
+            // printError("telephoneErr", "Please enter your telephone number");
+            printError("telephoneErr", "電話番号が入力されていません。");
+        } else {
+            var regex10 = /^[0-9]\d{9}$/;
+            var regex11 = /^[0-9]\d{10}$/;
+            if((regex10.test(telephoneNumber) || regex11.test(telephoneNumber)) === false) {
+                // printError("telephoneErr", "Please enter a valid 10 or 11 digit telephone number");
+                printError("telephoneErr", "電話番号の形式が正しくありません。");
+            } else{
+                printError("telephoneErr", "");
+                telephoneErr = false;
+            }
+        }
+
+        // Validate question
+        // if(question == "") {
+        //     printError("questionErr", "Please enter your questions");
+        // } else {
+        //     printError("questionErr", "");
+        //     questionErr = false;
+        // }
+
+         // Validate checkbox info
+        if(checkboxInfo === false) {
+            // printError("checkboxInfoErr", "Please check for confirmation");
+            printError("checkboxInfoErr", "個人情報の取扱に同意してください。");
+        } else {               
+            printError("checkboxInfoErr", "");
+            checkboxInfoErr = false;
+        }
+
+        // Prevent the form from being submitted if there are any errors
+        if((nameErr || companyErr || departmentErr || emailErr || telephoneErr || checkboxInfoErr) == true) {
+          return false;
+        } else {
+          $.ajax({
+            url:"https://api.apispreadsheets.com/data/m3D0QnDPwk3QhBxe/",
+            type:"post",
+            data:$("#myForm").serializeArray(),
+            success: function(){
+              window.location.href = "./thanks.html";
+            },
+            error: function(){
+              alert("There was an error :(")
+            }
+          });
+        }
+      }
+    </script>
+</head>
+<body>
+    <header class="for-inquiry-thanks">
+       
+    </header>
+    <section class="inquiry-first-view">
+       <img src="./img/firstview.png" alt="">
+    </section>
+    <form id="myForm" name="inquiry_form" >
+        <div class="form-topic">
+            <h1>モニター募集キャンペーン 応募フォーム</h1>
+            <h2>30秒で完了!下記の情報をご入力頂けましたら、メールにて詳細をご連絡致します。</h2>
+        </div>
+        <!--  -->
+        <div class="form-wrapper">
+            <div class="input-box">
+                <div class="input-zone">
+                <div class="label-name">
+                    <label for="">お名前<br><span class="red-sign">※必須</span></label>
+                </div>
+                <div class="input-contnainer">
+                    <input type="text" id="name" name="Name">
+                    <div class="err-msg" id="nameErr"></div>
+                </div>
+                </div>
+            </div>
+            <div class="input-box">
+                <div class="input-zone">
+                    <div class="label-name">
+                    <label for="">メールアドレス<br><span class="red-sign">※必須</span></label>
+                    </div>
+                    <div class="input-contnainer">
+                    <input type="text" id="email_address" name="Email Address">
+                    <div class="err-msg" id="emailErr"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-box">
+                <div class="input-zone">
+                    <div class="label-name">
+                    <label for="">郵便番号<br><span class="red-sign">※必須</span></label>
+                    </div>
+                    <div class="input-contnainer">
+                    <input type="text" id="zipcode" name="Zip Code">
+                    <div class="err-msg" id="ZipCodeErr"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-box">
+                <div class="input-zone">
+                <div class="label-name">
+                    <label for="">ご住所<br><span class="red-sign">※必須</span></label>
+                </div>
+                <div class="input-contnainer">
+                    <input type="text" id="address" name="Address">
+                    <div class="err-msg" id="addressErr"></div>
+                </div>
+                </div>
+            </div>
+            <div class="input-box">
+                <div class="input-zone">
+                    <div class="label-name">
+                    <label for="">電話番号<br><span class="red-sign">※必須</span></label>
+                    </div>
+                    <div class="input-contnainer">
+                    <input type="number" id="telephone_number" name="Telephone Number">
+                    <div class="err-msg" id="telephoneErr"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-box">
+                <div class="input-zone">
+                <div class="label-name">
+                    <label for="">Instagram ID<br><span class="red-sign">※必須</span></label>
+                </div>
+                <div class="input-contnainer">
+                    <input type="text" id="instagram" name="Instagram">
+                    <div class="err-msg" id="instagramErr"></div>
+                </div>
+                </div>     
+            </div>
+            <div class="input-box">
+                <div class="input-zone">
+                <div class="label-name">
+                    <label for="">その他<br>ご質問等</label>
+                </div>
+                <div class="input-contnainer">
+                    <textarea name="Questions" id="question" cols="30" rows="10"></textarea>
+                    <div class="err-msg" id="questionErr"></div>
+                    <!-- <input type="text" id="date" name="Date" class="hidden">
+                    <input type="text" id="slack_sent" name="Slack Sent" class="hidden" value="No"> -->
+                </div>
+                </div>
+            </div>
+            <div class="input-box checkboxInfoErr">
+                <div class="input-zone forcheckthis">
+                <div class="label-name forcheck">
+                    <input type="checkbox" name="" id="checkboxInfo">
+                    <label for="checkboxInfo" class="checkboxInfo"><a href="" target="_blank" rel="noopener noreferrer" class="form-link">プライバシーポリシー</a>を確認の上、送信してください。<br><span class="red-sign">※必須</span></label>
+                    </label>
+                </div>
+                </div>
+                <div class="err-msg" id="checkboxInfoErr"></div>
+            </div>
+        </div>
+        <!-- <div class="input-zone">
+            <input type="submit" value="送信する" class="submit" id="submit" onclick="return check()">
+        </div> -->
+      </form>
+      <div class="input-zone forsubmit">
+        <input type="submit" value="送信" class="submit" id="submit" onclick="SubForm()">
+      </div>
+
+    <footer>
+        <img src="./img/footer/logo_base color(RGB)-07.png" alt="">
+        <ul>
+            <li>About</li>
+            <li>Products</li>
+            <li>News</li>
+            <li>FAQ</li>
+            <li>Contact</li>
+        </ul>
+        <small>@2022 cha is</small>
+    </footer>
+</body>
+</html>
