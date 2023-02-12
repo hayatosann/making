@@ -121,7 +121,7 @@ a{
 }
 
 .left-box-icon img{
-    height: 100px;
+    height: 200px;
 }
 
 .details-container{
@@ -144,7 +144,7 @@ a{
         order: 2;
     }
     .left-box-icon img{
-        height: 100px;
+        height: 80px;
     }
 }
 
@@ -162,19 +162,22 @@ a{
 }
 
 .above-sentence{
-    font-size: 28px;
+    font-size: 48px;
+    font-weight: bold;
     /* border-bottom:2px solid #FFFFFF; */
     margin-bottom: 15px;
     /* width: 100%; */
     position: relative;
+    padding: 20px 0;
 }
 
 @media screen and (max-width:768px) {
     .above-sentence{
-       font-size: 18px;
+       font-size: 20px;
+       text-align: center;
     }
     .below-sentence{
-        font-size: 14px;
+        font-size: 10px;
     }
 }
 
@@ -195,7 +198,9 @@ a{
 
 
 .below-sentence{
-    font-size: 18px;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 28px;
 }
 
 @media screen and (max-width:768px) {
@@ -259,11 +264,34 @@ a{
     right: 20px;
 }
 .above-right-thing h3{
-    font-size: 24px;
+    font-size: 48px;
+}
+.sentece-line{
+    font-size: 32px;
+}
+
+.below-right-thing p{
+    font-size: 32px;
 }
 
 .sentece-line {
     position: relative;
+}
+
+@media screen and (max-width:768px) {
+    .above-right-thing h3{
+        font-size: 24px;
+    }
+    .below-right-thing p{
+        font-size: 24px;
+    }
+    .below-right-thing  .sentece-line{
+        font-size: 16px;
+    }
+    .sentece-line{
+        font-size: 16px;
+    }
+
 }
 
 .sentece-line:before {
@@ -294,6 +322,7 @@ a{
     .above-right-thing{
         margin: unset;
         margin-top: 30px;
+        width: ;
     }
     .above-sentence:before{
         bottom: -10px;
@@ -337,7 +366,23 @@ a{
 }
 
 .third-top p {
-    font-size: 28px;
+    font-size: 64px;
+}
+
+.spfor{
+    display: none;
+}
+
+@media screen and (max-width:768px){
+    .third-top p {
+        font-size: 32px;
+    }
+    .spfor{
+        display: block;
+    }
+    .third-top{
+        justify-content: space-around;
+    }
 }
 
 .third-icon img{
@@ -356,6 +401,9 @@ a{
 @media screen and (max-width:768px){
     .third-container{
         flex-direction: column;
+    }
+    .third-icon img{
+        height: 100px;
     }
     
 }
@@ -382,6 +430,10 @@ a{
     align-items: center;
     border-radius: 8px;
     margin-bottom: 20px;
+}
+
+.card-sentence div{
+    font-size: 19px;
 }
 
 .card-image{
@@ -414,6 +466,9 @@ a{
         width: 45%;
         color: #121212;
     }
+    .card-sentence div{
+        font-size: 15px;
+    }
 }
 
 .third-detail-container{
@@ -424,6 +479,7 @@ a{
 
 .third-detail-container p {
     margin: 10px 0;
+    font-size: 15px;
 }
 
 @media screen and (max-width:768px){
@@ -453,9 +509,6 @@ a{
 }
 
 @media screen and (max-width:768px){
-    .forth-wrapper-top h2{
-        font-size: 18px;
-    }
     .forth-wrapper-top img{
         height: 60px;
     }
@@ -467,27 +520,33 @@ a{
 }
 
 .thing-container{
-    margin: 20px 0;
+    margin: 40px 0;
 }
 
 .first-thing-title{
     background-color: #b3b3b3;
     color: #ed3781;
-    width: 15%;
+    width: 25%;
     padding: 5px;
     border-radius: 8px;
     text-align: center;
+    font-size: 32px;
 }
 
 .padding-alignment{
     width: 80%;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 10px;
+    font-size: 24px;
 }
 
 .padding-alignment-second{
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
+}
+
+.padding-alignment-second p{
+    padding: 10px 0;
 }
 
 @media screen and (max-width:768px){
@@ -501,17 +560,28 @@ a{
         font-size: 15px;
         padding: 10px 0;
     }
+    .thing-container{
+        margin: 20px 0;
+    }
 }
 
 .date-adj{
+    padding: 20px 0;
     margin-top: 5px;
     font-weight: bold;
     text-align: center;
+    font-size: 32px;
 }
 
 @media screen and (max-width:768px){
     .first-thing-title{
-        width: 50%;
+        width: 40%;
+        font-size: 15px;
+        text-align: left;
+    }
+    .date-adj{
+        font-size: 13px;
+        padding: 10px 0;
     }
 }
 
@@ -529,14 +599,19 @@ a{
     .thing-container-box{
         flex-direction: column;
     }
+    .final-thing-title{
+        padding: 10px 20px;
+    }
 }
 
 .highlight {
     color: #ed3781;
+    font-size: 32px;
+    font-weight: bold;
 }
 
 .left-box,.right-box{
-    width: 40%;
+    width: 50%;
 }
 
 .left-box img{
@@ -544,14 +619,19 @@ a{
 }
 
 .right-box{
-    width: 80%;
+    width: 50%;
+    padding-top: 70px;
 }
 
 @media screen and (max-width:768px){
     .left-box,.right-box{
         width: 100%;
+        padding-top: 20px;
     }
     .details-sectence-box p{
+        font-size: 15px;
+    }
+    .highlight {
         font-size: 15px;
     }
 }
@@ -561,7 +641,7 @@ a{
 }
 
 .left-box h3{
-    font-size: 16px;
+    font-size: 32px;
     margin: 20px 0;
 }
 
@@ -574,17 +654,31 @@ a{
 .cvr-btn{
     background-color: #ed3781;
     color: #FFFFFF;
-    width: 30%;
+    width: 35%;
     text-align: center;
     padding: 10px;
     border-radius: 8px;
     margin: 0 auto;
     margin-bottom: 20px;
+    font-size: 32px;
 }
 
 @media screen and (max-width:768px){
     .cvr-btn{
-        width: 70%;
+        width: 50%;
+        font-size: 15px;
+    }
+    .left-box h3{
+        font-size: 15px;
+    }
+    .details-sectence-box p{
+        font-size: 12px;
+    }
+    .details-sectence-box div{
+        font-size: 12px;
+    }
+    .padding-alignment p {
+        font-size: 12px;
     }
 }
 
@@ -642,6 +736,9 @@ form{
       margin-top: 15px;
       text-align: left;
       font-size: 13px;
+    }
+    footer ul li{
+        margin-left: 5px;
     }
 }
 
@@ -752,9 +849,11 @@ textarea{
 }
 
 .forth-wrapper-top h2{
+    font-size: 48px;
     padding-top: 40px;
     color: #121212;
     position: relative;
+    font-weight: 100;
 }
 
 .forth-wrapper-top h2:before{
@@ -807,6 +906,10 @@ label br{
     .checkboxInfo{
         font-size: 11px;
     }
+    .forth-wrapper-top h2{
+        font-size: 16px;
+        padding: 10px 0;
+    }
 }
 
 .forth-details-cvr-part{
@@ -824,8 +927,22 @@ label br{
 
 .forth-details-cvr-part p {
     margin: 15px;
+    font-size: 24px;
 }
 
 .forth-details-cvr-part p:first-child{
     font-weight: bold;
+    font-size: 24px;
+}
+
+@media screen and (max-width:768px) {
+    .forth-details-cvr-part p:first-child{
+        font-size: 10px;
+    }
+    .forth-details-cvr-part p{
+        font-size: 10px;
+    }
+    footer{
+        padding-top: 10px;
+    }
 }
